@@ -131,10 +131,10 @@ func TestJaegerAgentUDPLimitBatching(t *testing.T) {
 func TestSpanExceedsMaxPacketLimit(t *testing.T) {
 	otel.SetErrorHandler(errorHandler{t})
 
-	// 102 is the serialized size of a span with default values.
-	maxSize := 102
+	// 106 is the serialized size of a span with default values.
+	maxSize := 106
 	span := &tracesdk.SpanSnapshot{
-		Name: "a-longger-name-that-make-it-exceeds-limit",
+		Name: "a-longer-name-that-makes-it-exceeds-limit",
 	}
 	largeSpans := []*tracesdk.SpanSnapshot{span, {}}
 	normalSpans := []*tracesdk.SpanSnapshot{{}, {}}
